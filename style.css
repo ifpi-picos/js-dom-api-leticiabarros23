@@ -106,8 +106,7 @@ body {
 
     img.foto {
     max-width: 100%;
-    /* padding-top: 5%;
-    padding-bottom: 5%; */
+    padding-top: 5%;
 } 
 
 .titulo-principal {
@@ -185,64 +184,13 @@ body {
     align-items: center;
 }
 
-.container-opcoes {
-    margin: 0 auto 0 0;
-}
-
-.container-opcoes select {
-    background-color: transparent;
-    color: #ab49cc;
-    border: 1px solid #ab49cc;
-    border-radius: 10px;
-    padding: 5px;
-    width: 178px;
-    height: 40px;
-}
-
-option {
-    background-color: #070014;
-    color: #ab49cc;
-    border: 1px solid #ab49cc;
-    border-radius: 10px;
-    padding: 5px;
-    width: 178px;
-    height: 80px;
-}
-
-.escolher {
-    align-items: center;
-    justify-content: flex-end;
-    border-radius: 50%;
-    padding: 0px 10px;
-    background-color: #ab49cc;
-    border: none;
-    cursor: pointer;
-    border-radius: 0.3em;
-    width: 150px;
-    height: 40px;
-}
-
-.escolher:hover {
-    background-color: transparent;
-    color: #ab49cc;
-    border: 1px solid #ab49cc;
-    transition: 0.3s ease-in-out;
-    cursor: pointer;
-}
-
-/* .info {
-    position: relative;
-    display: grid;
-    grid-template-columns: 4fr 8fr;
-    margin-top: 1.2em;
-} */
 
 .poster {
     width: 100%;
 }
 
 h2 {
-    text-align: center;
+    color: #ffffff;
     font-size: 1.5em;
     font-weight: 600;
     letter-spacing: 0.06em;
@@ -277,19 +225,6 @@ h2 {
     font-weight: 300;
 }
 
-.genre {
-    display: flex;
-    justify-content: space-around;
-}
-
-.genre div {
-    border: 1px solid #ab49cc;
-    font-size: 0.75em;
-    padding: 0.4em 1.6em;
-    border-radius: 0.4em;
-    font-weight: 300;
-}
-
 h3 {
     color: #ffffff;
     font-weight: 500;
@@ -307,6 +242,15 @@ p {
 .msg {
     text-align: center;
 }
+
+ #btnMinhaLista {
+    font-size: 16px;
+    background-color: transparent;
+    border: 1px solid #a0a0a0;
+    color: #5249cc;
+    padding: 5px 10px;
+} 
+
 
 .tables {
     display: flex;
@@ -328,20 +272,6 @@ td {
     padding: 8px;
     text-align: left;
     color: #ffffff;
-}
-
-th {
-    background-color: #ab49cc;
-}
-
-tr {
-    background-color: #8300af;
-}
-
-.titulo-tabela {
-    color: white;
-    border: 2px solid #000000;
-    background-color: #7b02a3;
 }
 
 .modal {

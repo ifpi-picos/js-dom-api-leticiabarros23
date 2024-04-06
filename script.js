@@ -43,14 +43,17 @@ let getMovie = () => {
                         <h2>${data.nome}</h2>
                         <p>${data.sinopse}</p>
                         <div class="tarefas">
-                        <button onclick="marcarComo('assistir', ${data.id})">Assistir</button>
-                        <button onclick="marcarComo('assistido', ${data.id})">Assistido</button>
-                        <button onclick="adicionarALista(${data.id})">Minha Lista</button>
+                        <button id="btnMinhaLista" onclick="adicionarALista(${data.id})">Minha Lista</button>
                     </div>
                 </div>
             
                     </div>
                 `;
+            // Adiciona evento de clique ao botão "Minha Lista" que foi inserido no resultado
+            document.querySelector('.info button:last-of-type').addEventListener('click', function() {
+            window.location.href = 'minhaLista.html';
+            });
+
             })
             .catch(error => {
                 resultado.innerHTML = `<h3 class="msg">Ocorreu um erro ao buscar o filme. Tente novamente mais tarde.</h3>`;
