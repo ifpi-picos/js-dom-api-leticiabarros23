@@ -6,19 +6,39 @@ let filmesAssistir = [];
 let filmesAssistidos = [];
 let minhaLista = [];
 
-function marcarComo(status, id) {
-    if (status === 'assistir') {
-        filmesAssistir.push(id);
-    } else if (status === 'assistido') {
-        filmesAssistidos.push(id);
+function marcarComo(status) {
+    let select = document.getElementById('selectFilmes');
+    let nomeFilme = select.options[select.selectedIndex].text;
+
+    if (status === 'assistir' && select.selectedIndex !== 0) {
+        filmesAssistir.push(nomeFilme);
+        let filmesSelecionados = document.getElementById('filmesSelecionados');
+        let novoItem = document.createElement('li');
+        novoItem.textContent = nomeFilme;
+        filmesSelecionados.appendChild(novoItem);
+        alert(`Filme "${nomeFilme}" adicionado à lista para assistir!`);
+        salvarLista(); 
+    } else {
+        alert('Por favor, selecione um filme antes de adicionar à lista.');
     }
-    alert(`Filme marcado como "${status}" com sucesso!`);
 }
 
-function adicionarALista(id) {
-    minhaLista.push(id);
-    alert('Filme adicionado à sua lista!');
-}
+    function salvarLista() {
+        localStorage.setItem('filmesAssistir', JSON.stringify(filmesAssistir));
+    }
+
+    function carregarLista() {
+        const filmesSalvos = localStorage.getItem('filmesAssistir');
+        if (filmesSalvos) {
+            filmesAssistir = JSON.parse(filmesSalvos);
+            atualizarLista();
+        }
+    }
+
+document.addEventListener('DOMContentLoaded', () => {
+    carregarLista();
+});
+
 
 let getMovie = () => {
     const value = input.value;

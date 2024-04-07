@@ -4,13 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha Lista</title>
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="minhaLista.css">
 </head>
-<body>
-    <h1> Minha Lista</h1>
-    <button onclick="marcarComo('assistir', ${data.id})">Assistir</button>
-    <button onclick="marcarComo('assistido', ${data.id})">Assistido</button>
-    <script src="script.js"></script>
 
-</body>
+    <body>
+        <h1 class="titulo">
+            Minha Lista
+        </h1>
+        <div class="container-minha-lista">
+            <select id="selectFilmes">
+                <option disabled selected>Filmes</option>
+                <option value="1">Venom</option>
+                <option value="2">Shazam</option>
+                <option value="3">The Meg</option>
+                <option value="4">Vingadores Ultimato</option>
+                <option value="5">O Primeiro Homem</option>
+                <option value="6">Missão: Impossível</option>
+                <option value="7">Orla do Pacífico</option>
+            </select>
+            <button onclick="marcarComo('assistir', '${data.id}')">Assistir</button>  
+            <ul id="filmesSelecionados"></ul>          
+            <!-- <ul id="filmesParaAssistir"></ul> -->
+           
+            <!-- <button onclick="marcarComo('assistido', '${data.id}')">Assistido</button> -->
+        </div>
+        <!-- <div id="filmeSelecionado"></div> -->
+        <div class="tarefas-minha-lista">
+
+
+
+            
+            <script src="script.js"></script>
+        </div>
+    </body>
+    
+    
+
+
 </html>
