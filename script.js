@@ -25,10 +25,15 @@ function marcarComo(status) {
     let nomeFilme = select.options[select.selectedIndex].text;
 
     if (status === 'assistir' && select.selectedIndex !== 0) {
-        filmesAssistir.push(nomeFilme);
-        salvarLista();
-        atualizarLista();
-        alert(`Filme "${nomeFilme}" adicionado à lista para assistir!`);
+        // Verifica se o filme já está na lista
+        if (filmesAssistir.includes(nomeFilme)) {
+            alert(`O filme "${nomeFilme}" já está na lista.`);
+        } else {
+            filmesAssistir.push(nomeFilme);
+            salvarLista();
+            atualizarLista();
+            alert(`Filme "${nomeFilme}" adicionado à lista para assistir!`);
+        }
     } else {
         alert('Por favor, selecione um filme antes de adicionar à lista.');
     }
@@ -53,38 +58,34 @@ document.addEventListener('DOMContentLoaded', () => {
     atualizarLista(); // Adiciona os filmes à lista ao carregar a página
 });
 
-// function marcarComo(status) {
-//     let select = document.getElementById('selectFilmes');
-//     let nomeFilme = select.options[select.selectedIndex].text;
+// Função para remover um filme da lista
+function removerFilme(nomeFilme) {
+    filmesAssistir = filmesAssistir.filter(filme => filme !== nomeFilme);
+    salvarLista();
+    atualizarLista();
+    alert(`Filme "${nomeFilme}" removido da lista!`);
+}
 
-//     if (status === 'assistir' && select.selectedIndex !== 0) {
-//         filmesAssistir.push(nomeFilme);
-//         let filmesSelecionados = document.getElementById('filmesSelecionados');
-//         let novoItem = document.createElement('li');
-//         novoItem.textContent = nomeFilme;
-//         filmesSelecionados.appendChild(novoItem);
-//         alert(`Filme "${nomeFilme}" adicionado à lista para assistir!`);
-//         salvarLista();
-//     } else {
-//         alert('Por favor, selecione um filme antes de adicionar à lista.');
-//     }
-// }
+// Função para atualizar a lista de filmes exibida na página
+function atualizarLista() {
+    let filmesSelecionados = document.getElementById('filmesSelecionados');
+    filmesSelecionados.innerHTML = ''; // Limpa a lista antes de atualizar
 
-// function removerTarefa(tarefaElement) {
-//     var nomeFilmeRemover = tarefaElement.getAttribute('data-filme');
-//     var indexFilmeRemover = filmesAssistir.indexOf(nomeFilmeRemover);
-//     if (indexFilmeRemover !== -1) {
-//         filmesAssistir.splice(indexFilmeRemover, 1);
-//     }
+    // Adiciona cada filme à lista com um botão de remover
+    filmesAssistir.forEach((filme) => {
+        let novoItem = document.createElement('li');
+        novoItem.textContent = filme;
 
-//     localStorage.setItem('filmesAssistir', JSON.stringify(filmesAssistir));
-//     tarefaElement.remove();
-// }
+        // Criação do botão de remover
+        let btnRemover = document.createElement('button');
+        btnRemover.textContent = 'Remover';
+        btnRemover.className = 'botao-remover';
+        btnRemover.onclick = function () { removerFilme(filme); };
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     carregarLista();
-// });
-
+        novoItem.appendChild(btnRemover);
+        filmesSelecionados.appendChild(novoItem);
+    });
+}
 
 let getMovie = () => {
     const value = input.value;

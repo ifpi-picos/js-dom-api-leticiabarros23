@@ -48,20 +48,23 @@ body {
 }
 
 #filmesSelecionados {
+    width: 90%;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     list-style-type: none;
-    padding: 0; 
     padding-left: 10%;
 }
 
 #filmesSelecionados li {
+    padding: 10px;
     font-size: 17px;
     margin-top: 3%;
     color: rgb(8, 6, 133);
     background-color: #ffffff;
-    /* box-shadow:  3em 2em 3em rgba(0, 0, 0, 0.2); */
+    box-shadow:  0 10px 30px rgba(0, 0, 0, 0.1); 
     border-radius: 5px;
-    /* font-weight: bold; */
+    font-weight: bold;
 }
 
 #selectFilmes {
@@ -93,6 +96,21 @@ outline: none;
     margin-bottom: 5%; /* Espaçamento entre o input/botão e a lista de filmes */
 }
 
+.botao-remover {
+justify-content: center;
+align-items: center;
+text-align: center;
+}
+
+.botao-remover {
+    color: #5249cc;
+    background-color: transparent;
+    border: 1px solid #5249cc;
+    border: none;
+    cursor: pointer;
+    font-size: 10px;
+    float: right;
+}
 
 @media (max-width: 470px) {
     .titulo {
