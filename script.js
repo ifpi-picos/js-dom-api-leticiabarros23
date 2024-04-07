@@ -17,35 +17,35 @@ function marcarComo(status) {
         novoItem.textContent = nomeFilme;
         filmesSelecionados.appendChild(novoItem);
         alert(`Filme "${nomeFilme}" adicionado à lista para assistir!`);
-        salvarLista(); 
+        salvarLista();
     } else {
         alert('Por favor, selecione um filme antes de adicionar à lista.');
     }
 }
 
-    function salvarLista() {
-        localStorage.setItem('filmesAssistir', JSON.stringify(filmesAssistir));
+function salvarLista() {
+    localStorage.setItem('filmesAssistir', JSON.stringify(filmesAssistir));
+}
+
+function carregarLista() {
+    const filmesSalvos = localStorage.getItem('filmesAssistir');
+    if (filmesSalvos) {
+        filmesAssistir = JSON.parse(filmesSalvos);
+        atualizarLista();
+    }
+}
+
+function removerTarefa(tarefaElement) {
+    var nomeFilmeRemover = tarefaElement.getAttribute('data-filme');
+    var indexFilmeRemover = filmesAssistir.indexOf(nomeFilmeRemover);
+    if (indexFilmeRemover !== -1) {
+        filmesAssistir.splice(indexFilmeRemover, 1);
     }
 
-    function carregarLista() {
-        const filmesSalvos = localStorage.getItem('filmesAssistir');
-        if (filmesSalvos) {
-            filmesAssistir = JSON.parse(filmesSalvos);
-            atualizarLista();
-        }
-    }
+    localStorage.setItem('filmesAssistir', JSON.stringify(filmesAssistir));
+    tarefaElement.remove();
+}
 
-    function removerTarefa(tarefaElement) {
-        var nomeFilmeRemover = tarefaElement.getAttribute('data-filme');
-        var indexFilmeRemover = filmesAssistir.indexOf(nomeFilmeRemover);
-        if (indexFilmeRemover !== -1) {
-            filmesAssistir.splice(indexFilmeRemover, 1);
-        }
-    
-        localStorage.setItem('filmesAssistir', JSON.stringify(filmesAssistir));
-        tarefaElement.remove();
-    }
-    
 
 document.addEventListener('DOMContentLoaded', () => {
     carregarLista();
@@ -81,10 +81,10 @@ let getMovie = () => {
             
                     </div>
                 `;
-            // Adiciona evento de clique ao botão "Minha Lista" que foi inserido no resultado
-            document.querySelector('.info button:last-of-type').addEventListener('click', function() {
-            window.location.href = 'minhaLista.html';
-            });
+                // Adiciona evento de clique ao botão "Minha Lista" que foi inserido no resultado
+                document.querySelector('.info button:last-of-type').addEventListener('click', function () {
+                    window.location.href = 'minhaLista.html';
+                });
 
             })
             .catch(error => {
