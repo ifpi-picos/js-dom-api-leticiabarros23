@@ -12,6 +12,7 @@
             Minha Lista
         </h1>
         <div class="container-minha-lista">
+            <div class="input-botao">
             <select id="selectFilmes">
                 <option disabled selected>Filmes</option>
                 <option value="1">Venom</option>
@@ -22,23 +23,21 @@
                 <option value="6">Missão: Impossível</option>
                 <option value="7">Orla do Pacífico</option>
             </select>
-            <button class="botao-assistir" onclick="marcarComo('assistir', '${data.id}')">Assistir</button>  
-            <ul id="filmesSelecionados"></ul>  
-
+            <button class="botao-assistir" onclick="marcarComo('assistir', '${data.id}')">Assistir</button> 
+        </div>
+            <div class="lista-minha">
+                <ul id="filmesSelecionados"></ul>  
+            </div>
+        </div>
+            
             <!-- <ul id="filmesParaAssistir"></ul> -->
             <!-- <button onclick="marcarComo('assistido', '${data.id}')">Assistido</button> -->
-        </div>
+       
         <!-- <div id="filmeSelecionado"></div> -->
         <div class="tarefas-minha-lista">
 
-
-
-            
             <script src="script.js"></script>
         </div>
     </body>
     
-    
-
-
 </html>

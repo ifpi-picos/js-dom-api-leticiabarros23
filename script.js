@@ -6,50 +6,84 @@ let filmesAssistir = [];
 let filmesAssistidos = [];
 let minhaLista = [];
 
+// Função para salvar a lista de filmes no localStorage
+function salvarLista() {
+    localStorage.setItem('filmesAssistir', JSON.stringify(filmesAssistir));
+}
+
+// Função para carregar a lista de filmes do localStorage
+function carregarLista() {
+    const filmes = localStorage.getItem('filmesAssistir');
+    if (filmes) {
+        filmesAssistir = JSON.parse(filmes);
+    }
+}
+
+// Função para adicionar um filme à lista
 function marcarComo(status) {
     let select = document.getElementById('selectFilmes');
     let nomeFilme = select.options[select.selectedIndex].text;
 
     if (status === 'assistir' && select.selectedIndex !== 0) {
         filmesAssistir.push(nomeFilme);
-        let filmesSelecionados = document.getElementById('filmesSelecionados');
-        let novoItem = document.createElement('li');
-        novoItem.textContent = nomeFilme;
-        filmesSelecionados.appendChild(novoItem);
-        alert(`Filme "${nomeFilme}" adicionado à lista para assistir!`);
         salvarLista();
+        atualizarLista();
+        alert(`Filme "${nomeFilme}" adicionado à lista para assistir!`);
     } else {
         alert('Por favor, selecione um filme antes de adicionar à lista.');
     }
 }
 
-function salvarLista() {
-    localStorage.setItem('filmesAssistir', JSON.stringify(filmesAssistir));
+// Função para atualizar a lista de filmes exibida na página
+function atualizarLista() {
+    let filmesSelecionados = document.getElementById('filmesSelecionados');
+    filmesSelecionados.innerHTML = ''; // Limpa a lista antes de atualizar
+
+    // Adiciona cada filme à lista
+    filmesAssistir.forEach((filme) => {
+        let novoItem = document.createElement('li');
+        novoItem.textContent = filme;
+        filmesSelecionados.appendChild(novoItem);
+    });
 }
 
-function carregarLista() {
-    const filmesSalvos = localStorage.getItem('filmesAssistir');
-    if (filmesSalvos) {
-        filmesAssistir = JSON.parse(filmesSalvos);
-        atualizarLista();
-    }
-}
-
-function removerTarefa(tarefaElement) {
-    var nomeFilmeRemover = tarefaElement.getAttribute('data-filme');
-    var indexFilmeRemover = filmesAssistir.indexOf(nomeFilmeRemover);
-    if (indexFilmeRemover !== -1) {
-        filmesAssistir.splice(indexFilmeRemover, 1);
-    }
-
-    localStorage.setItem('filmesAssistir', JSON.stringify(filmesAssistir));
-    tarefaElement.remove();
-}
-
-
+// Função para carregar a lista de filmes ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
     carregarLista();
+    atualizarLista(); // Adiciona os filmes à lista ao carregar a página
 });
+
+// function marcarComo(status) {
+//     let select = document.getElementById('selectFilmes');
+//     let nomeFilme = select.options[select.selectedIndex].text;
+
+//     if (status === 'assistir' && select.selectedIndex !== 0) {
+//         filmesAssistir.push(nomeFilme);
+//         let filmesSelecionados = document.getElementById('filmesSelecionados');
+//         let novoItem = document.createElement('li');
+//         novoItem.textContent = nomeFilme;
+//         filmesSelecionados.appendChild(novoItem);
+//         alert(`Filme "${nomeFilme}" adicionado à lista para assistir!`);
+//         salvarLista();
+//     } else {
+//         alert('Por favor, selecione um filme antes de adicionar à lista.');
+//     }
+// }
+
+// function removerTarefa(tarefaElement) {
+//     var nomeFilmeRemover = tarefaElement.getAttribute('data-filme');
+//     var indexFilmeRemover = filmesAssistir.indexOf(nomeFilmeRemover);
+//     if (indexFilmeRemover !== -1) {
+//         filmesAssistir.splice(indexFilmeRemover, 1);
+//     }
+
+//     localStorage.setItem('filmesAssistir', JSON.stringify(filmesAssistir));
+//     tarefaElement.remove();
+// }
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     carregarLista();
+// });
 
 
 let getMovie = () => {
