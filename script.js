@@ -35,6 +35,18 @@ function marcarComo(status) {
         }
     }
 
+    function removerTarefa(tarefaElement) {
+        var nomeFilmeRemover = tarefaElement.getAttribute('data-filme');
+        var indexFilmeRemover = filmesAssistir.indexOf(nomeFilmeRemover);
+        if (indexFilmeRemover !== -1) {
+            filmesAssistir.splice(indexFilmeRemover, 1);
+        }
+    
+        localStorage.setItem('filmesAssistir', JSON.stringify(filmesAssistir));
+        tarefaElement.remove();
+    }
+    
+
 document.addEventListener('DOMContentLoaded', () => {
     carregarLista();
 });
