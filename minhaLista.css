@@ -1,150 +1,186 @@
  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
 
-body {
-    background: #f5f5f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    width: 100vw;
-}
+ body {
+     background: #f5f5f5;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     height: 100vh;
+     width: 100vw;
+ }
 
-.titulo {
-    font-size: 35px;
-    font-weight: 600;
-    color: rgb(8, 6, 133);
-    letter-spacing: 1px;
-    margin: 30px 0;
-}
+ .titulo {
+     font-size: 35px;
+     font-weight: 600;
+     color: rgb(8, 6, 133);
+     letter-spacing: 1px;
+     margin: 30px 0;
+ }
 
-.container-minha-lista {
-    width: 90vw;
-    max-width: 37.5em;
-    padding: 3em 1.8em;
-    background-color: #ffffff;
-    border-radius: 0.6em;
-    box-shadow: 1.2em 2em 3em rgba(0, 0, 0, 0.2);
-    /* display: flex; */
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+ .container-minha-lista {
+     width: 90vw;
+     max-width: 37.5em;
+     padding: 3em 1.8em;
+     background-color: #ffffff;
+     border-radius: 0.6em;
+     box-shadow: 1.2em 2em 3em rgba(0, 0, 0, 0.2);
+     /* display: flex; */
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+ }
 
-.container-minha-lista select {
-    margin-right: 1em; 
-}
+ .container-minha-lista select {
+     margin-right: 1em;
+ }
 
-.container-minha-lista button {
-    width: 17%;
-    cursor: pointer; 
-}
+ .container-minha-lista button {
+     width: 17%;
+     cursor: pointer;
+ }
 
-#filmesSelecionados {
-    width: 90%;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    list-style-type: none;
-    padding-left: 10%;
-}
+ #filmesSelecionados {
+     width: 90%;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     list-style-type: none;
+     padding-left: 10%;
+ }
 
-#filmesSelecionados li {
-    padding: 10px;
-    font-size: 17px;
-    margin-top: 3%;
-    color: rgb(8, 6, 133);
-    background-color: #ffffff;
-    box-shadow:  0 10px 30px rgba(0, 0, 0, 0.1); 
-    border-radius: 5px;
-    font-weight: bold;
-}
+ #filmesSelecionados li {
+     padding: 10px;
+     font-size: 17px;
+     margin-top: 3%;
+     color: rgb(8, 6, 133);
+     background-color: #ffffff;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+     border-radius: 5px;
+     font-weight: bold;
+ }
 
-#selectFilmes {
-width: 60%;
-}
+ #selectFilmes {
+     width: 60%;
+ }
 
-#selectFilmes {
-padding: 6px;
-border-radius: 5px;
-border: 1px solid #ccc;
-font-size: 18px;
-outline: none;
-}
+ #selectFilmes {
+     padding: 6px;
+     border-radius: 5px;
+     border: 1px solid #ccc;
+     font-size: 18px;
+     outline: none;
+ }
 
-.botao-assistir {
-border: none;
-border-radius: 5px;
-background-color:  rgb(8, 6, 133);
-color: #f5f5f5;
-font-size: 19.5px;
-padding: 6px;
-outline: none;
-}
+ .botao-assistir {
+     border: none;
+     border-radius: 5px;
+     background-color: rgb(8, 6, 133);
+     color: #f5f5f5;
+     font-size: 19.5px;
+     padding: 6px;
+     outline: none;
+ }
 
-.input-botao {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    margin-bottom: 5%; /* Espaçamento entre o input/botão e a lista de filmes */
-}
+ .input-botao {
+     justify-content: center;
+     align-items: center;
+     display: flex;
+     margin-bottom: 5%;
+     /* Espaçamento entre o input/botão e a lista de filmes */
+ }
 
-.botao-remover {
-justify-content: center;
-align-items: center;
-text-align: center;
-}
+ .botao-remover {
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+ }
 
-.botao-remover {
-    color: #5249cc;
-    background-color: transparent;
-    border: 1px solid #5249cc;
-    border: none;
-    cursor: pointer;
-    font-size: 10px;
-    float: right;
-}
+ .botao-remover {
+     color: #5249cc;
+     background-color: transparent;
+     border: 1px solid #5249cc;
+     border: none;
+     cursor: pointer;
+     font-size: 10px;
+     float: right;
+ }
 
-@media (max-width: 470px) {
-    .titulo {
-        font-size: 8vw; 
-    }
+ @media (max-width: 550px) {
+     .titulo {
+         font-size: 8vw;
+     }
 
-    .container-minha-lista {
-        padding: 2em 1em; 
-    }
+     .container-minha-lista {
+         padding: 2em 1em;
+     }
 
-    .container-minha-lista select {
-        width: 95%; 
-    }
+     .container-minha-lista select {
+         width: 95%;
+     }
 
-    #selectFilmes,
-    .botao-assistir {
-        font-size: 3vw; 
-    }
-} 
+     #selectFilmes,
+     .botao-assistir {
+         font-size: 3vw;
+     }
+ }
 
-@media (max-width: 400px) {
+ @media (max-width: 470px) {
+     .titulo {
+         font-size: 8vw;
+     }
 
-    .container-minha-lista {
-        grid-template-columns: 1fr;
-        padding: 2em 1em; 
-    }
+     .container-minha-lista {
+         padding: 2em 1em;
+         flex-direction: column;
+     }
 
-    .container-minha-lista select {
-        width: 95%; 
-    }
+     .container-minha-lista select {
+         width: 95%;
+     }
 
-    #selectFilmes,
-    .botao-assistir {
-        font-size: 3vw; 
-    }
-} 
+     #selectFilmes,
+     .botao-assistir {
+         font-size: 3vw;
+     }
+ }
 
+ @media (max-width: 400px) {
+
+     .container-minha-lista {
+         grid-template-columns: 1fr;
+         padding: 2em 1em;
+     }
+
+     .container-minha-lista select {
+         width: 95%;
+     }
+
+     #selectFilmes,
+     .botao-assistir {
+         font-size: 3vw;
+     }
+ }
+
+ @media (max-width: 380px) {
+     .container-minha-lista {
+         flex-direction: column;
+         align-items: center;
+     }
+
+     .input-botao {
+         flex-direction: column;
+     }
+
+     .botao-assistir {
+         width: 100%;
+         margin-top: 10px;
+     }
+ }
